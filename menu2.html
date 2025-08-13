@@ -33,11 +33,9 @@
     }
 
     header.top {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.94));
-      backdrop-filter: blur(6px);
+      position: static; /* αφήνουμε το brand να κάνει scroll */
+      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,0.98));
+      backdrop-filter: none;
       border-bottom: 1px solid var(--line);
     }
     .brand {
@@ -85,12 +83,18 @@
     }
 
     .chips {
+      position: sticky;
+      top: 0; /* bcbbbbc b5afbdb1b9 bcccbdb9bcb1 c3c4b7bd babfc1c5c6ae */
+      z-index: 20;
       display: flex;
       gap: 8px;
       overflow-x: auto;
       padding: 10px clamp(12px, 3vw, 24px) 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,0.98));
       border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
       scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
     }
     .chip {
       flex: 0 0 auto;
