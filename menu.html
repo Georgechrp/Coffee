@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Εισαγωγή Μενού Καφετέριας</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #menu-container { margin-top: 16px; }
+    img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; }
+    button { padding: 8px 14px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h3>Μενού Καφετέριας</h3>
+  <button id="insert-btn">Εισαγωγή Μενού</button>
+
+  <div id="menu-container"></div>
+
+  <script>
+    const insertBtn = document.getElementById('insert-btn');
+    const container = document.getElementById('menu-container');
+
+    insertBtn.addEventListener('click', () => {
+      // ΑΛΛΑΞΕ το src με το δικό σου αρχείο/URL εικόνας, π.χ. "menu.jpg"
+      const imageSrc = "menu.png";
+
+      // Αν δεν υπάρχει ήδη εικόνα, πρόσθεσέ την. Αλλιώς, μπορείς να την αντικαταστήσεις.
+      container.innerHTML = ""; // καθαρισμός για να μπει 1 εικόνα
+      const img = document.createElement('img');
+      img.src = imageSrc;
+      img.alt = "Μενού Καφετέριας";
+      container.appendChild(img);
+    });
+  </script>
+</body>
+</html>
