@@ -2,31 +2,88 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cafe Mpournelis Chora</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cafe Mpournelis — Επιλογές Μενού</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    #menu-container { margin-top: 16px; }
-    img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; display: block; }
+    :root {
+      --bg: #ffffff;
+      --text: #1f1f1f;
+      --accent: #b59b7e; /* ελαφρύ, “cool” καφέ */
+      --accent-weak: #eae3db;
+    }
 
-    /* Σε κινητά: η εικόνα να πιάνει όλη την οθόνη */
-    @media (max-width: 768px) {
-      html, body { margin: 0; padding: 0; height: 100%; }
-      body { padding: 0; }
-      h3 { display: none; } /* Απόκρυψη τίτλου για να μην “τρώει” χώρο. Αφαίρεσέ το αν τον θέλεις. */
-      img {
-        width: 100vw;
-        height: 100dvh;      /* γεμίζει το διαθέσιμο ύψος σε mobile */
-        object-fit: contain; /* κρατάει αναλογία χωρίς κόψιμο (crop) */
-        border: none;
-        border-radius: 0;
-      }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 520px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.6rem, 2.3vw + 1rem, 2.2rem);
+      letter-spacing: 0.2px;
+    }
+    p.sub {
+      margin: 0 0 28px;
+      color: #666;
+      font-size: 0.98rem;
+    }
+
+    .btns {
+      display: grid;
+      gap: 14px;
+    }
+    a.btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 18px;
+      border: 1px solid var(--accent);
+      color: var(--bg);
+      background: var(--accent);
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.02rem;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease, color 0.2s ease;
+      text-align: center;
+    }
+    a.btn.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--accent);
+    }
+    a.btn:active { transform: scale(0.98); }
+    a.btn:hover { box-shadow: 0 6px 18px rgba(181, 155, 126, 0.25); }
+
+    footer {
+      margin-top: 22px;
+      color: #888;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <h3>Το Μενού μας</h3>
-  <img src="menu.png" alt="Το Μενού μας" />
-  <div id="menu-container"></div>
+  <main class="wrap">
+    <h1>Cafe Mpournelis</h1>
+    <p class="sub">Στην πλατεία της Χώρας Μεσσηνίας</p>
+
+    <div class="btns">
+      <a class="btn" href="menu1.html" aria-label="Μετάβαση στο Μενού 1">Μενού 1</a>
+      <a class="btn secondary" href="menu2.html" aria-label="Μετάβαση στο Μοντέρνο Μίνιμαλ Μενού">Μοντέρνο Μίνιμαλ Μενού</a>
+    </div>
+
+    <footer>Διάλεξε ποιο μενού θέλεις να δεις</footer>
+  </main>
 </body>
 </html>
