@@ -11,7 +11,7 @@
       --text: #1f1f1f;
       --muted: #6b6b6b;
       --line: #ececec;
-      --accent: #b59b7e;     /* ελαφρύ, “cool” καφέ */
+      --accent: #b59b7e;     /* ελαφρύ καφέ */
       --accent-weak: #f1ebe5; /* πολύ απαλό για backgrounds */
       --chip-bg: #f7f4f0;
     }
@@ -38,12 +38,15 @@
       backdrop-filter: none;
       border-bottom: 1px solid var(--line);
     }
+
     .brand {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       padding: 14px clamp(12px, 3vw, 24px);
+      /* Ελαφρώς πιο δεξιά + ασφάλεια για notch */
+      padding-left: calc(clamp(12px, 3vw, 24px) + env(safe-area-inset-left, 0px));
     }
     .brand h1 {
       font-size: clamp(1.3rem, 2vw + 1rem, 1.9rem);
@@ -84,8 +87,8 @@
 
     .chips {
       position: sticky;
-      top: 0; /* bcbbbbc b5afbdb1b9 bcccbdb9bcb1 c3c4b7bd babfc1c5c6ae */
-      z-index: 20;
+      top: 0;
+      z-index: 50;
       display: flex;
       gap: 8px;
       overflow-x: auto;
@@ -188,14 +191,16 @@
 </head>
 <body>
   <header class="top">
-    <div class="brand container" style="padding-inline:0;">
+    <div class="brand container">
       <div>
         <h1>Cafe Mpournelis</h1>
         <p>Στην πλατεία της Χώρας Μεσσηνίας</p>
       </div>
+      <!--
       <div class="actions">
         <a class="btn secondary" href="index.html" aria-label="Επιστροφή στην αρχική">← Αρχική</a>
       </div>
+      -->
     </div>
 
     <nav class="chips" aria-label="Κατηγορίες">
@@ -213,54 +218,54 @@
 
     <section id="coffees" class="category" aria-labelledby="coffees-title">
       <h2 id="coffees-title">Καφέδες</h2>
-      <p class="desc">Single origin επιλογές και blend καθημερινής απόλαυσης.</p>
+      <p class="desc">Κλασικοί και κρύοι καφέδες.</p>
       <div class="list">
         <div class="item">
           <h3>Espresso</h3>
           <div class="price">2.20€</div>
-          <p>Μονός, ισορροπημένος, με καραμελένιες νότες.</p>
+          <p>Μονός.</p>
         </div>
         <div class="item">
           <h3>Double Espresso</h3>
           <div class="price">2.80€</div>
-          <p>Διπλή δόση για γεμάτο σώμα και ένταση.</p>
+          <p>Διπλός.</p>
         </div>
         <div class="item">
           <h3>Cappuccino</h3>
           <div class="price">3.20€</div>
-          <p>Βελούδινος αφρός γάλακτος, ισορροπία γεύσης.</p>
+          <p>Με αφρό γάλακτος.</p>
         </div>
         <div class="item">
           <h3>Latte</h3>
           <div class="price">3.30€</div>
-          <p>Απαλός και κρεμώδης με πλούσιο γάλα.</p>
+          <p>Με περισσότερο γάλα.</p>
         </div>
         <div class="item">
           <h3>Freddo Espresso</h3>
           <div class="price">3.00€</div>
-          <p>Δροσερός, δυνατός, ιδανικός για καλοκαίρι.</p>
+          <p>Κρύος εσπρέσο.</p>
         </div>
         <div class="item">
           <h3>Freddo Cappuccino</h3>
           <div class="price">3.50€</div>
-          <p>Κρύος αφρός γάλακτος με τέλεια υφή.</p>
+          <p>Κρύος με αφρό γάλακτος.</p>
         </div>
         <div class="item">
           <h3>Ελληνικός Καφές</h3>
           <div class="price">2.40€</div>
-          <p>Παραδοσιακός και αρωματικός, στη χόβολη.</p>
+          <p>Παραδοσιακός.</p>
         </div>
         <div class="item">
           <h3>Decaf</h3>
           <div class="price">3.00€</div>
-          <p>Απολαυστικός χωρίς καφεΐνη.</p>
+          <p>Χωρίς καφεΐνη.</p>
         </div>
       </div>
     </section>
 
     <section id="softs" class="category" aria-labelledby="softs-title">
       <h2 id="softs-title">Αναψυκτικά</h2>
-      <p class="desc">Κλασικές επιλογές, πάντα παγωμένες.</p>
+      <p class="desc">Κλασικά αναψυκτικά.</p>
       <div class="list">
         <div class="item">
           <h3>Νερό 500ml</h3>
@@ -270,12 +275,12 @@
         <div class="item">
           <h3>Αναψυκτικό Κόλα</h3>
           <div class="price">2.20€</div>
-          <p>Κλασική γεύση, 330ml.</p>
+          <p>330ml.</p>
         </div>
         <div class="item">
           <h3>Λεμονάδα</h3>
           <div class="price">2.40€</div>
-          <p>Δροσερή, ελαφρώς αφρώδης.</p>
+          <p>Δροσερή.</p>
         </div>
         <div class="item">
           <h3>Πορτοκαλάδα</h3>
@@ -290,46 +295,46 @@
         <div class="item">
           <h3>Iced Tea Ροδάκινο</h3>
           <div class="price">2.60€</div>
-          <p>Ελαφρώς γλυκό, παγωμένο.</p>
+          <p>Παγωμένο.</p>
         </div>
       </div>
     </section>
 
     <section id="icecream" class="category" aria-labelledby="icecream-title">
       <h2 id="icecream-title">Παγωτά</h2>
-      <p class="desc">Χειροποίητες γεύσεις, καθημερινά φρέσκες.</p>
+      <p class="desc">Γεύσεις παγωτού.</p>
       <div class="list">
         <div class="item">
           <h3>Μπάλα Βανίλια</h3>
           <div class="price">1.80€</div>
-          <p>Κλασική Μαδαγασκάρης.</p>
+          <p>Κλασική.</p>
         </div>
         <div class="item">
           <h3>Μπάλα Σοκολάτα</h3>
           <div class="price">1.80€</div>
-          <p>Πλούσια κακάο.</p>
+          <p>Πλούσια.</p>
         </div>
         <div class="item">
           <h3>Μπάλα Φράουλα</h3>
           <div class="price">1.80€</div>
-          <p>Δροσερή με κομμάτια φρούτου.</p>
+          <p>Με κομμάτια φρούτου.</p>
         </div>
         <div class="item">
           <h3>Παγωτό Μπανάνα Σπλιτ</h3>
           <div class="price">4.50€</div>
-          <p>Κλασικός συνδυασμός με σιρόπι σοκολάτας.</p>
+          <p>Με σιρόπι σοκολάτας.</p>
         </div>
       </div>
     </section>
 
     <section id="drinks" class="category" aria-labelledby="drinks-title">
       <h2 id="drinks-title">Ποτά</h2>
-      <p class="desc">Διαλεγμένες ετικέτες για κάθε γούστο.</p>
+      <p class="desc">Μπύρες, κρασί και αποστάγματα.</p>
       <div class="list">
         <div class="item">
           <h3>Μπύρα Draft 330ml</h3>
           <div class="price">3.00€</div>
-          <p>Ξανθιά, παγωμένη.</p>
+          <p>Ξανθιά.</p>
         </div>
         <div class="item">
           <h3>Μπύρα Μπουκάλι</h3>
@@ -339,12 +344,12 @@
         <div class="item">
           <h3>Κρασί Λευκό ποτήρι</h3>
           <div class="price">3.50€</div>
-          <p>Αρωματικό και φρέσκο.</p>
+          <p>Αρωματικό.</p>
         </div>
         <div class="item">
           <h3>Κρασί Ροζέ ποτήρι</h3>
           <div class="price">3.50€</div>
-          <p>Δροσερό και φρουτώδες.</p>
+          <p>Δροσερό.</p>
         </div>
         <div class="item">
           <h3>Ούζο/Τσίπουρο 50ml</h3>
@@ -356,7 +361,7 @@
 
     <section id="cocktails" class="category" aria-labelledby="cocktails-title">
       <h2 id="cocktails-title">Κοκτέιλς</h2>
-      <p class="desc">Κλασικά και signature, ισορροπημένα και φρέσκα.</p>
+      <p class="desc">Κλασικά κοκτέιλ.</p>
       <div class="list">
         <div class="item">
           <h3>Mojito</h3>
@@ -371,29 +376,29 @@
         <div class="item">
           <h3>Margarita</h3>
           <div class="price">8.00€</div>
-          <p>Τεκίλα, λάιμ, triple sec, αλάτι χείλους.</p>
+          <p>Τεκίλα, λάιμ, triple sec.</p>
         </div>
         <div class="item">
           <h3>Espresso Martini</h3>
           <div class="price">8.50€</div>
-          <p>Vodka, espresso, coffee liqueur, απαλό σιρόπι.</p>
+          <p>Vodka, espresso, coffee liqueur.</p>
         </div>
       </div>
     </section>
 
     <section id="snacks" class="category" aria-labelledby="snacks-title">
       <h2 id="snacks-title">Σνακ</h2>
-      <p class="desc">Ιδανικά συνοδευτικά για κάθε ρόφημα.</p>
+      <p class="desc">Μικρά συνοδευτικά.</p>
       <div class="list">
         <div class="item">
           <h3>Τοστ Ζαμπόν-Τυρί</h3>
           <div class="price">3.20€</div>
-          <p>Κλασική επιλογή, ψημένο στην εντέλεια.</p>
+          <p>Κλασικό.</p>
         </div>
         <div class="item">
           <h3>Κρουασάν Βουτύρου</h3>
           <div class="price">2.40€</div>
-          <p>Φρέσκο, αφράτο, βουτυρένιο.</p>
+          <p>Φρέσκο.</p>
         </div>
         <div class="item">
           <h3>Μπαγκέτα Κοτόπουλο</h3>
@@ -403,7 +408,7 @@
         <div class="item">
           <h3>Μπάρες Δημητριακών</h3>
           <div class="price">1.80€</div>
-          <p>Ενεργειακές, με ξηρούς καρπούς.</p>
+          <p>Με ξηρούς καρπούς.</p>
         </div>
       </div>
     </section>
@@ -411,7 +416,7 @@
 
   <footer class="container" style="padding-inline: clamp(16px,4vw,24px);">
     <span>© Cafe Mpournelis</span>
-    <span>Στην πλατεία της Χώρας Μεσσηνίας</span>
+    <span>Πλατεία Χώρα Μεσσηνίας</span>
   </footer>
 </body>
 </html>
