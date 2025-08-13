@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Εισαγωγή Μενού Καφετέριας</title>
+  <title>Cafe Mpournelis Chora</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; }
     #menu-container { margin-top: 16px; }
@@ -12,26 +12,11 @@
   </style>
 </head>
 <body>
-  <h3>Μενού Καφετέριας</h3>
-  <button id="insert-btn">Εισαγωγή Μενού</button>
+
+  <h3>Το Μενού μας</h3>
+  <img src="menu.png" alt="Το Μενού μας" />
 
   <div id="menu-container"></div>
 
-  <script>
-    const insertBtn = document.getElementById('insert-btn');
-    const container = document.getElementById('menu-container');
-
-    insertBtn.addEventListener('click', () => {
-      // ΑΛΛΑΞΕ το src με το δικό σου αρχείο/URL εικόνας, π.χ. "menu.jpg"
-      const imageSrc = "menu.png";
-
-      // Αν δεν υπάρχει ήδη εικόνα, πρόσθεσέ την. Αλλιώς, μπορείς να την αντικαταστήσεις.
-      container.innerHTML = ""; // καθαρισμός για να μπει 1 εικόνα
-      const img = document.createElement('img');
-      img.src = imageSrc;
-      img.alt = "Μενού Καφετέριας";
-      container.appendChild(img);
-    });
-  </script>
 </body>
 </html>
